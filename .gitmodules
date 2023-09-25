@@ -1,0 +1,3 @@
+[submodule "nr"]
+	path = nr
+	url = https://github.com/blackstonep/Numerical-Recipes.git
