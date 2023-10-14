@@ -1,44 +1,46 @@
+#include <iostream>
+
 #include "../../nr/nr3.h"
 #include "../../nr/gaussj.h"
 using namespace std;
 
 int main(void)
 {
-    printf("Please input the size of matrix:");
+    cout << "This program is used to calculate the inverse matrix of a given matrix." << endl;
     int n;
-    scanf("%d", &n);
+    cin >> n;
 
     float b[n*n];
 
-    printf("\nPlease input the matrix:");
+    cout << "Please input the matrix:" << endl;
     for (int i = 0; i < n*n; i++)
     {
-        scanf("%f", &b[i]);
+        cin >> b[i];
     }
 
     MatDoub a(3, 3);
 
-    printf("The matrix is:\n");
+    cout << "The matrix is:" << endl;
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < n; j++)
         {
             a[i][j] = b[i*n+j];
-            printf("%f ", a[i][j]);
+            cout << a[i][j] << " ";
         }
-        printf("\n");
+        cout << endl;
     }
 
     gaussj(a);
 
-    printf("\nThe inverse matrix is:\n");
+    cout << "The inverse matrix is:" << endl;
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < n; j++)
         {
-            printf("%f ", a[i][j]);
+            cout << a[i][j] << " ";
         }
-        printf("\n");
+        cout << endl;
     }
     return 0;
 }
