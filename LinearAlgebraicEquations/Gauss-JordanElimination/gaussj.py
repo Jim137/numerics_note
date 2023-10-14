@@ -20,6 +20,8 @@ def gaussj(a: np.ndarray):
             if abs(a[j][k]) > abs(a[i][k]):
                 i = j
         a[[k, i]] = a[[i, k]] # swap row k and row i -> put the pivot on the diagonal
+        if a[k][k] == 0:
+            raise ZeroDivisionError('Matrix is singular')
         a[k] = a[k] / a[k][k] # normalize row k
         # subtract the pivot row from other rows
         for i in range(n):
